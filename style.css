@@ -1,0 +1,104 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  background: linear-gradient(135deg, #2b2d42, #4a2c2a, #264d3c);
+  color: #f8f8f8;
+  overflow-x: hidden;
+}
+
+h1 {
+  margin-top: 20px;
+  font-size: 2.5rem;
+  color: #f6d6d6; /* pastel pink-red */
+}
+
+.subtitle {
+  color: #cfdcdc; /* pastel blue-green */
+  margin-bottom: 20px;
+}
+
+.music-control {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  text-align: right;
+}
+
+button {
+  background: #2b2d42;
+  color: #fff;
+  border: 2px solid #f6d6d6;
+  border-radius: 12px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.fallback {
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+
+.fallback a {
+  color: #a3c4f3;
+  text-decoration: none;
+}
+
+.fallback a:hover {
+  text-decoration: underline;
+}
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 40px;
+}
+
+.card {
+  width: 180px;
+  height: 220px;
+  background: #fff;
+  border: 6px solid #eee;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.card::after {
+  content: "Click me!";
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #666;
+  font-size: 1rem;
+}
+
+/* Butterflies */
+.butterfly {
+  position: fixed;
+  bottom: 0;
+  font-size: 24px;
+  animation: fly 4s linear forwards;
+}
+
+.butterfly::before {
+  content: "🦋";
+}
+
+@keyframes fly {
+  0% { transform: translateY(0) rotate(0); opacity: 1; }
+  50% { transform: translateY(-200px) rotate(45deg); opacity: 0.8; }
+  100% { transform: translateY(-500px) rotate(90deg); opacity: 0; }
+}
