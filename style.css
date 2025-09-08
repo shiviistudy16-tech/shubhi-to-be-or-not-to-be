@@ -14,7 +14,7 @@ body {
   margin: 0;
   font-family: 'Gaegu', cursive;
   text-align: center;
-  background: linear-gradient(135deg, var(--deep-blue), var(--deep-red), var(--deep-green));
+  background: linear-gradient(135deg, var(--deep-sea-blue), var(--deep-red), var(--dark-green));
   color: var(--text-color);
   overflow-x: hidden;
 }
