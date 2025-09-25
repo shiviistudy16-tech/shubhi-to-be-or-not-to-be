@@ -7,7 +7,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Polaroid effect */
+    body {
+      margin: 0;
+      font-family: 'Gaegu', cursive;
+      background: #fefefe;
+      overflow-x: hidden;
+    }
+
+    h1, .subtitle {
+      text-align: center;
+    }
+
+    /* Music controls */
+    .music-control {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    /* Gallery */
     .gallery {
       display: flex;
       flex-wrap: wrap;
@@ -18,7 +35,7 @@
 
     .card {
       width: 150px;
-      height: 180px;
+      min-height: 180px;
       background: white;
       padding: 10px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.3);
@@ -29,9 +46,9 @@
       justify-content: flex-start;
       cursor: pointer;
       transition: transform 0.3s;
-      font-family: 'Gaegu', cursive;
       text-align: center;
-      perspective: 1000px; /* added for flip */
+      z-index: 10; /* stay above animations */
+      position: relative;
     }
 
     .card img {
@@ -47,46 +64,24 @@
       font-size: 14px;
       color: #333;
       line-height: 1.2;
+      font-weight: bold;
     }
 
     .card:hover {
       transform: scale(1.05);
     }
 
-    /* Flip card effect */
-    .card-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.8s;
-      transform-style: preserve-3d;
-    }
-
-    .card.flipped .card-inner {
-      transform: rotateY(180deg);
-    }
-
-    .card-front, .card-back {
+    /* Floating stars/butterflies */
+    .floating {
       position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .card-back {
-      transform: rotateY(180deg);
-      background: white;
-      padding: 10px;
-      font-family: 'Gaegu', cursive;
-      text-align: center;
+      pointer-events: none;
+      z-index: 1;
+      border-radius: 50%;
     }
   </style>
 </head>
 <body>
+
   <!-- Music controls -->
   <div class="music-control">
     <button id="playMusic">Play Birthday Vibes 🎶</button>
@@ -96,91 +91,26 @@
   </div>
 
   <h1>Happy Birthday, Shrub. I hope you like this little surprise 🦋</h1>
-  <p class="subtitle">Click the polaroids for a little something special...</p>
+  <p class="subtitle">Click the cards for a little something special...</p>
 
-  <!-- Gallery starts -->
+  <!-- Gallery -->
   <div class="gallery">
-    <div class="card">
-      <div class="card-inner">
-        <div class="card-front">
-          <img src="IMG_7086.JPG" alt="Polaroid 1">
-        </div>
-        <div class="card-back">
-          <p>Finally 16! 🦋 You’re so amazing that sometimes I can't fully express it!</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-inner">
-        <div class="card-front">
-          <img src="assets/pic2.jpg" alt="Polaroid 2">
-        </div>
-        <div class="card-back">
-          <p>Hope that your 16th is the best day ever</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-inner">
-        <div class="card-front">
-          <img src="assets/pic3.jpg" alt="Polaroid 3">
-        </div>
-        <div class="card-back">
-          <p>Hopefully we do the Oonchi hai building trend sometime ♥!</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-inner">
-        <div class="card-front">
-          <img src="assets/pic4.jpg" alt="Polaroid 4">
-        </div>
-        <div class="card-back">
-          <p>For being the cutest and silliest shrub ever</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-inner">
-        <div class="card-front">
-          <img src="assets/pic5.jpg" alt="Polaroid 5">
-        </div>
-        <div class="card-back">
-          <p>To all the craziness in VA and Commerce and for more to come.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-inner">
-        <div class="card-front">
-          <img src="assets/pic6.jpg" alt="Polaroid 6">
-        </div>
-        <div class="card-back">
-          <p>And many more amazing memories to come! 🎉</p>
-        </div>
-      </div>
-    </div>
+    <div class="card"><img src="IMG_7086.JPG" alt="Polaroid 1"></div>
+    <div class="card"><p>Finally 16! 🦋 You’re so amazing that sometimes I can't fully express it!</p></div>
+    <div class="card"><img src="assets/pic2.jpg" alt="Polaroid 2"></div>
+    <div class="card"><p>Hope that your 16th is the best day ever</p></div>
+    <div class="card"><img src="assets/pic3.jpg" alt="Polaroid 3"></div>
+    <div class="card"><p>Hopefully we do the Oonchi hai building trend sometime ♥!</p></div>
+    <div class="card"><img src="assets/pic4.jpg" alt="Polaroid 4"></div>
+    <div class="card"><p>For being the kindest and silliest shrub ever</p></div>
+    <div class="card"><img src="assets/pic5.jpg" alt="Polaroid 5"></div>
+    <div class="card"><p>To all the craziness in VA and Commerce and for more to come.</p></div>
+    <div class="card"><img src="assets/pic6.jpg" alt="Polaroid 6"></div>
   </div>
-  <!-- Gallery ends -->
 
   <!-- Music file -->
   <audio id="bgMusic" src="assets/creed.mp3" loop></audio>
 
   <script src="script.js"></script>
-  <script>
-    // Flip card on click
-    document.querySelectorAll('.card').forEach(card => {
-      card.addEventListener('click', () => {
-        card.classList.toggle('flipped');
-      });
-    });
-  </script>
 </body>
 </html>
-
-
