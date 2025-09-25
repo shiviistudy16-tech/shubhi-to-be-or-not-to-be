@@ -10,8 +10,8 @@
     body {
       margin: 0;
       font-family: 'Gaegu', cursive;
-      /* Gradient background */
-      background: linear-gradient(135deg, crimson, green);
+      /* Gradient background (deep green → deep blue) */
+      background: linear-gradient(135deg, #064e3b, #0f172a);
       overflow-x: hidden;
       position: relative;
       color: #fff; /* make default text stand out */
@@ -19,14 +19,14 @@
 
     h1, .subtitle {
       text-align: center;
-      transform: none !important; /* ensure text not flipped */
+      transform: none !important;
     }
 
     /* Music controls */
     .music-control {
       text-align: center;
       margin-top: 20px;
-      transform: none !important; /* keep readable */
+      transform: none !important;
     }
 
     /* Gallery */
@@ -37,8 +37,8 @@
       justify-content: center;
       margin-top: 30px;
       position: relative;
-      z-index: 10; /* cards stay above animation */
-      transform: none !important; /* prevent flipping */
+      z-index: 10; /* cards above butterflies */
+      transform: none !important;
     }
 
     .card {
@@ -57,7 +57,7 @@
       text-align: center;
       position: relative;
       z-index: 10;
-      transform: none !important; /* keep upright */
+      transform: none !important;
     }
 
     .card:hover {
@@ -81,18 +81,48 @@
       transform: none !important;
     }
 
-    /* Floating stars/butterflies */
-    .floating {
-      position: absolute;
+    /* Butterfly container */
+    .butterfly-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       pointer-events: none;
+      overflow: hidden;
       z-index: 1; /* behind cards */
-      border-radius: 50%;
+    }
+
+    /* Individual floating butterflies */
+    .butterfly {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      background-image: url('assets/butterfly.png'); /* replace with your butterfly asset */
+      background-size: cover;
       opacity: 0.9;
-      transform: none !important;
+      animation: float 12s linear infinite;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      30% {
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0;
+      }
     }
   </style>
 </head>
 <body>
+
+  <!-- Always-on butterflies -->
+  <div class="butterfly-container" id="butterflyContainer"></div>
 
   <!-- Music controls -->
   <div class="music-control">
