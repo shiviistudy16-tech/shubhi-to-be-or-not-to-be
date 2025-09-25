@@ -1,6 +1,7 @@
-/* ----- BACKGROUND GRADIENT ----- */
+/* ----- BODY & BACKGROUND ----- */
 body {
   margin: 0;
+  min-height: 100vh;
   font-family: 'Gaegu', cursive;
   background: linear-gradient(135deg, crimson, darkred, seagreen, forestgreen);
   background-size: 400% 400%;
@@ -21,7 +22,7 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* ----- TITLE ----- */
+/* ----- TITLE & SUBTITLE ----- */
 h1 {
   margin-top: 20px;
   font-size: 2.5rem;
@@ -31,21 +32,20 @@ h1 {
 }
 
 .subtitle {
+  color: #fff;
   margin-bottom: 20px;
-  color: #a3c4f3;
   z-index: 2;
-  text-align: center;
 }
 
 /* ----- GALLERY CARDS ----- */
 .gallery {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 20px;
+  justify-content: center;
   margin-top: 30px;
   position: relative;
-  z-index: 2; /* cards above butterflies */
+  z-index: 2; /* cards above gradient */
 }
 
 .card {
@@ -54,7 +54,7 @@ h1 {
   background: white;
   padding: 10px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  border-radius: 8px;
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -84,14 +84,52 @@ h1 {
   color: #333;
   line-height: 1.2;
   font-weight: bold;
-  text-align: center;
+}
+
+/* ----- MUSIC BUTTON ----- */
+#playMusic {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.85);
+  color: #222;
+  cursor: pointer;
+  font-size: 1rem;
+  z-index: 3;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+#playMusic:hover {
+  background: #fff;
+  transform: scale(1.1);
 }
 
 /* ----- BUTTERFLY CONTAINER ----- */
 .butterfly-container {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
+  z-index: 999; /* in front of everything */
+}
+
+/* ----- INDIVIDUAL BUTTERFLIES ----- */
+.butterfly {
+  position: absolute;
+  font-size: 24px;
+  animation: fly 12s linear forwards;
+  opacity: 0.9;
+  z-index: 999; /* in front of cards & text */
+}
+
+@keyframes fly {
+  from { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+  30% { opacity: 1; }
+  to { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+}
+
