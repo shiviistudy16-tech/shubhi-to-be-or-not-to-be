@@ -10,19 +10,23 @@
     body {
       margin: 0;
       font-family: 'Gaegu', cursive;
-      background: #fefefe;
+      /* Gradient background */
+      background: linear-gradient(135deg, crimson, green);
       overflow-x: hidden;
       position: relative;
+      color: #fff; /* make default text stand out */
     }
 
     h1, .subtitle {
       text-align: center;
+      transform: none !important; /* ensure text not flipped */
     }
 
     /* Music controls */
     .music-control {
       text-align: center;
       margin-top: 20px;
+      transform: none !important; /* keep readable */
     }
 
     /* Gallery */
@@ -34,6 +38,7 @@
       margin-top: 30px;
       position: relative;
       z-index: 10; /* cards stay above animation */
+      transform: none !important; /* prevent flipping */
     }
 
     .card {
@@ -52,6 +57,7 @@
       text-align: center;
       position: relative;
       z-index: 10;
+      transform: none !important; /* keep upright */
     }
 
     .card:hover {
@@ -72,6 +78,7 @@
       color: #333;
       line-height: 1.2;
       font-weight: bold;
+      transform: none !important;
     }
 
     /* Floating stars/butterflies */
@@ -81,6 +88,7 @@
       z-index: 1; /* behind cards */
       border-radius: 50%;
       opacity: 0.9;
+      transform: none !important;
     }
   </style>
 </head>
