@@ -2,10 +2,121 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Shubhi, to be or not to be my friend? 🎉</title>
+  <title>Shubhi, to be or not to be my friend?🎉</title>
   <!-- Gaegu font -->
   <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Gaegu', cursive;
+      /* Gradient background (deep red → deep green) */
+      background: linear-gradient(135deg, #b23a48, #2c6e49);
+      overflow-x: hidden;
+      position: relative;
+      color: #fff; /* make default text stand out */
+    }
+
+    h1, .subtitle {
+      text-align: center;
+      transform: none !important;
+    }
+
+    /* Music controls */
+    .music-control {
+      text-align: center;
+      margin-top: 20px;
+      transform: none !important;
+    }
+
+    /* Gallery */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 30px;
+      position: relative;
+      z-index: 10; /* cards above butterflies */
+      transform: none !important;
+    }
+
+    .card {
+      width: 150px;
+      min-height: 180px;
+      background: white;
+      padding: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      cursor: pointer;
+      transition: transform 0.3s;
+      text-align: center;
+      position: relative;
+      z-index: 10;
+      transform: none !important;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 130px;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 14px;
+      color: #333;
+      line-height: 1.2;
+      font-weight: bold;
+      transform: none !important;
+    }
+
+    /* Butterfly container */
+    .butterfly-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1; /* behind cards */
+    }
+
+    /* Individual floating butterflies */
+    .butterfly {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      opacity: 0.9;
+      font-size: 24px;
+      animation: float 12s linear infinite;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      30% {
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -21,7 +132,7 @@
   </div>
 
   <h1>Happy Birthday, Shrub! 🦋</h1>
-  <p class="subtitle">Click the cards for a little something special...</p>
+  <p class="subtitle">Click the polaroids for a little something special...</p>
 
   <!-- Gallery starts -->
   <div class="gallery">
