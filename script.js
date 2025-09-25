@@ -3,19 +3,20 @@ const music = document.getElementById('bgMusic');
 const playBtn = document.getElementById('playMusic');
 const butterflyContainer = document.getElementById('butterflyContainer');
 
-// Butterfly generator
 function createButterfly() {
   const butterfly = document.createElement("div");
   butterfly.classList.add("butterfly");
 
-  // Random pastel color tint
+  // Random pastel color
   const colors = ["#f6d6d6", "#c2e7d9", "#a3c4f3"];
   butterfly.style.color = colors[Math.floor(Math.random() * colors.length)];
 
+  butterfly.textContent = "🦋"; // actually shows the butterfly emoji
   butterfly.style.left = Math.random() * window.innerWidth + "px";
-  butterflyContainer.appendChild(butterfly);
 
-  setTimeout(() => butterfly.remove(), 12000); // match float animation duration
+butterflyContainer.appendChild(butterfly);
+
+  setTimeout(() => butterfly.remove(), 12000);
 }
 
 // Keep butterflies always floating
