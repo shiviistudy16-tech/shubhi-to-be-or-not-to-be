@@ -6,6 +6,52 @@
   <!-- Gaegu font -->
   <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Polaroid effect */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .card {
+      width: 150px;
+      height: 180px;
+      background: white;
+      padding: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      cursor: pointer;
+      transition: transform 0.3s;
+      font-family: 'Gaegu', cursive;
+      text-align: center;
+    }
+
+    .card img {
+      width: 130px;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 14px;
+      color: #333;
+      line-height: 1.2;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 <body>
   <!-- Music controls -->
@@ -16,22 +62,22 @@
     </p>
   </div>
 
-  <h1>Happy Birthday, Shrub. I hope you like this little suprise 🦋</h1>
+  <h1>Happy Birthday, Shrub. I hope you like this little surprise 🦋</h1>
   <p class="subtitle">Click the polaroids for a little something special...</p>
 
   <!-- Gallery starts -->
   <div class="gallery">
-    <div class="card" data-img="IMG_7086.JPG"></div>
-    <div class="card" data-note="Finally 16! 🦋 You’re so amazing that sometimes I can't fully express it!"></div>
-    <div class="card" data-img="assets/pic2.jpg"></div>
-    <div class="card" data-note="Hope that your 16th is the best day ever"></div>
-    <div class="card" data-img="assets/pic3.jpg"></div>
-    <div class="card" data-note="Hopefully we do the Oonchi hai building trend sometime ♥!"></div>
-    <div class="card" data-img="assets/pic4.jpg"></div>
-    <div class="card" data-note="For being the kindest and silliest shrub ever"></div>
-    <div class="card" data-img="assets/pic5.jpg"></div>
-    <div class="card" data-note="To all the craziness in VA and Commerce and for more to come."></div>
-    <div class="card" data-img="assets/pic6.jpg"></div>
+    <div class="card"><img src="IMG_7086.JPG" alt="Polaroid 1"></div>
+    <div class="card"><p>Finally 16! 🦋 You’re so amazing that sometimes I can't fully express it!</p></div>
+    <div class="card"><img src="assets/pic2.jpg" alt="Polaroid 2"></div>
+    <div class="card"><p>Hope that your 16th is the best day ever</p></div>
+    <div class="card"><img src="assets/pic3.jpg" alt="Polaroid 3"></div>
+    <div class="card"><p>Hopefully we do the Oonchi hai building trend sometime ♥!</p></div>
+    <div class="card"><img src="assets/pic4.jpg" alt="Polaroid 4"></div>
+    <div class="card"><p>For being the kindest and silliest shrub ever</p></div>
+    <div class="card"><img src="assets/pic5.jpg" alt="Polaroid 5"></div>
+    <div class="card"><p>To all the craziness in VA and Commerce and for more to come.</p></div>
+    <div class="card"><img src="assets/pic6.jpg" alt="Polaroid 6"></div>
   </div>
   <!-- Gallery ends -->
 
@@ -41,3 +87,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
