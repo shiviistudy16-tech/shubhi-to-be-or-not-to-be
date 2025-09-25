@@ -3,7 +3,7 @@ body {
   margin: 0;
   height: 100vh;
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, crimson, darkred, forestgreen, seagreen);
+  background: linear-gradient(135deg, crimson, darkred, seagreen, forestgreen);
   background-size: 400% 400%;
   animation: gradientShift 12s ease infinite;
   color: #fff;
@@ -12,6 +12,7 @@ body {
   align-items: center;
   justify-content: flex-start;
   overflow: hidden;
+  position: relative;
 }
 
 @keyframes gradientShift {
@@ -26,6 +27,7 @@ h1 {
   font-size: 2.5rem;
   color: #fff;
   text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+  z-index: 2;
 }
 
 /* Game container */
@@ -34,6 +36,7 @@ h1 {
   display: grid;
   grid-template-columns: repeat(4, 100px);
   grid-gap: 15px;
+  z-index: 2;
 }
 
 /* Card styling */
@@ -49,29 +52,22 @@ h1 {
   justify-content: center;
   cursor: pointer;
   transition: transform 0.3s, background 0.3s;
+  position: relative;
+  z-index: 2;
 }
 
 .card:hover {
-  transform: scale(0.50);
+  transform: scale(1.05);
   background: rgba(255, 255, 255, 1);
 }
 
 /* Butterfly background */
-.butterfly-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-}
-
 .butterfly {
-  position: absolute;
+  position: fixed;
   font-size: 24px;
-  animation: fly 12s linear infinite;
+  animation: fly 12s linear forwards;
   opacity: 0.8;
+  z-index: 1;
 }
 
 @keyframes fly {
@@ -79,3 +75,23 @@ h1 {
   to { transform: translateY(-10vh) rotate(360deg); }
 }
 
+/* Music button in bottom-right */
+#playMusic {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.85);
+  color: #222;
+  cursor: pointer;
+  font-size: 1rem;
+  z-index: 3;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+#playMusic:hover {
+  background: #fff;
+  transform: scale(1.1);
+}
