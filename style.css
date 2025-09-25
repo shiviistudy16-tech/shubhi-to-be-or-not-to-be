@@ -1,8 +1,7 @@
-/* Background gradient */
+/* ----- BACKGROUND GRADIENT ----- */
 body {
   margin: 0;
-  height: 100vh;
-  font-family: Arial, sans-serif;
+  font-family: 'Gaegu', cursive;
   background: linear-gradient(135deg, crimson, darkred, seagreen, forestgreen);
   background-size: 400% 400%;
   animation: gradientShift 12s ease infinite;
@@ -11,8 +10,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
- overflow-x: hidden;
- overflow-y: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
   position: relative;
 }
 
@@ -22,7 +21,7 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* Title */
+/* ----- TITLE ----- */
 h1 {
   margin-top: 20px;
   font-size: 2.5rem;
@@ -31,68 +30,68 @@ h1 {
   z-index: 2;
 }
 
-/* Game container */
-.game-container {
-  margin-top: 30px;
-  display: grid;
-  grid-template-columns: repeat(4, 100px);
-  grid-gap: 15px;
+.subtitle {
+  margin-bottom: 20px;
+  color: #a3c4f3;
   z-index: 2;
+  text-align: center;
 }
 
-/* Card styling */
-.card {
-  width: 100px;
-  height: 140px;
-  background: rgba(255, 255, 255, 0.9);
-  color: #111;
-  border-radius: 10px;
-  font-size: 1rem;
+/* ----- GALLERY CARDS ----- */
+.gallery {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+  position: relative;
+  z-index: 2; /* cards above butterflies */
+}
+
+.card {
+  width: 150px;
+  min-height: 180px;
+  background: white;
+  padding: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   cursor: pointer;
-  transition: transform 0.3s, background 0.3s;
+  transition: transform 0.3s;
+  text-align: center;
   position: relative;
   z-index: 2;
 }
 
 .card:hover {
   transform: scale(1.05);
-  background: rgba(255, 255, 255, 1);
 }
 
-/* Butterfly background */
-.butterfly {
-  position: fixed;
-  font-size: 24px;
-  animation: fly 12s linear forwards;
-  opacity: 0.8;
-  z-index: 1;
+.card img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 
-@keyframes fly {
-  from { transform: translateY(100vh) rotate(0deg); }
-  to { transform: translateY(-10vh) rotate(360deg); }
+.card p {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+  line-height: 1.2;
+  font-weight: bold;
+  text-align: center;
 }
 
-/* Music button in bottom-right */
-#playMusic {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  padding: 12px 18px;
-  border: none;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.85);
-  color: #222;
-  cursor: pointer;
-  font-size: 1rem;
-  z-index: 3;
-  transition: transform 0.2s ease, background 0.3s ease;
-}
-
-#playMusic:hover {
-  background: #fff;
-  transform: scale(1.1);
-}
+/* ----- BUTTERFLY CONTAINER ----- */
+.butterfly-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
