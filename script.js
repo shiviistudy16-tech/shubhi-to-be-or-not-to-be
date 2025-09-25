@@ -1,26 +1,30 @@
 const cards = document.querySelectorAll('.card');
 const music = document.getElementById('bgMusic');
 const playBtn = document.getElementById('playMusic');
+const butterflyContainer = document.getElementById('butterflyContainer');
 
 // Butterfly generator
 function createButterfly() {
   const butterfly = document.createElement("div");
   butterfly.classList.add("butterfly");
 
-  // Random pastel color
+  // Random pastel color tint
   const colors = ["#f6d6d6", "#c2e7d9", "#a3c4f3"];
   butterfly.style.color = colors[Math.floor(Math.random() * colors.length)];
 
   butterfly.style.left = Math.random() * window.innerWidth + "px";
-  document.body.appendChild(butterfly);
+  butterflyContainer.appendChild(butterfly);
 
-  setTimeout(() => butterfly.remove(), 4000);
+  setTimeout(() => butterfly.remove(), 12000); // match float animation duration
 }
 
-// Flip card + butterflies (handles both images and text notes)
+// Keep butterflies always floating
+setInterval(createButterfly, 1500);
+
+// Flip card + burst of butterflies
 cards.forEach(card => {
   card.addEventListener("click", () => {
-    // generate butterflies
+    // burst of butterflies on click
     for (let i = 0; i < 8; i++) {
       setTimeout(createButterfly, i * 150);
     }
@@ -55,3 +59,4 @@ playBtn.addEventListener("click", () => {
   music.play();
   playBtn.style.display = "none";
 });
+
