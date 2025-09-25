@@ -14,7 +14,7 @@ body {
   margin: 0;
   font-family: 'Gaegu', cursive;
   text-align: center;
-  background: linear-gradient(135deg, var(--deep-sea-blue), var(--deep-red), var(--dark-green));
+  background: linear-gradient(135deg, var(--deep-blue), var(--deep-red), var(--deep-green));
   color: var(--text-color);
   overflow-x: hidden;
 }
@@ -99,6 +99,10 @@ button {
   font-size: 1rem;
 }
 
+.card.flipped::after {
+  content: ""; /* hide text once card is flipped */
+}
+
 /* ----- BUTTERFLIES ----- */
 .butterfly {
   position: fixed;
@@ -116,3 +120,4 @@ button {
   50% { transform: translateY(-200px) rotate(45deg); opacity: 0.8; }
   100% { transform: translateY(-500px) rotate(90deg); opacity: 0; }
 }
+
