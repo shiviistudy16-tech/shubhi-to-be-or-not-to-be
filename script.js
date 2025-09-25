@@ -21,16 +21,23 @@ function createButterfly() {
 cards.forEach(card => {
   card.addEventListener("click", () => {
     // generate butterflies
-    for (let i = 0; i < 8; i++) setTimeout(createButterfly, i * 150);
+    for (let i = 0; i < 8; i++) {
+      setTimeout(createButterfly, i * 150);
+    }
 
+    // wait before showing content
     setTimeout(() => {
       if (card.dataset.img) {
+        // show image
         card.style.backgroundImage = `url(${card.dataset.img})`;
+        card.style.backgroundSize = "cover";
+        card.style.backgroundPosition = "center";
       } 
       if (card.dataset.note) {
+        // show note
         card.textContent = card.dataset.note;
-        card.style.backgroundColor = "#fff";  // make text readable
-        card.style.color = "#2b2d42";         // text color
+        card.style.backgroundColor = "#fff";  
+        card.style.color = "#2b2d42";         
         card.style.fontWeight = "bold";
         card.style.display = "flex";
         card.style.justifyContent = "center";
