@@ -14,6 +14,7 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   position: relative;
+  z-index: 1; /* base layer */
 }
 
 @keyframes gradientShift {
@@ -29,12 +30,14 @@ h1 {
   color: #fff;
   text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
   z-index: 2;
+  position: relative;
 }
 
 .subtitle {
   color: #fff;
   margin-bottom: 20px;
   z-index: 2;
+  position: relative;
 }
 
 /* ----- GALLERY CARDS ----- */
@@ -63,7 +66,7 @@ h1 {
   transition: transform 0.3s;
   text-align: center;
   position: relative;
-  z-index: 2;
+  z-index: 2; /* cards layer */
 }
 
 .card:hover {
@@ -115,7 +118,7 @@ h1 {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 999; /* in front of everything */
+  z-index: 9999; /* MUCH higher than cards */
 }
 
 /* ----- INDIVIDUAL BUTTERFLIES ----- */
@@ -124,7 +127,7 @@ h1 {
   font-size: 24px;
   animation: fly 12s linear forwards;
   opacity: 0.9;
-  z-index: 999; /* in front of cards & text */
+  z-index: 10000; /* ensures butterflies float above all */
 }
 
 @keyframes fly {
@@ -132,4 +135,3 @@ h1 {
   30% { opacity: 1; }
   to { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
 }
-
