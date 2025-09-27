@@ -65,6 +65,3 @@ playBtn.addEventListener("click", () => {
     playBtn.textContent = "Play Music 🎶";
   }
 });
-
-});
-
