@@ -55,9 +55,16 @@ cards.forEach(card => {
   });
 });
 
-// Music controls
+// Music toggle (Play ⇄ Pause)
 playBtn.addEventListener("click", () => {
-  music.play();
-  playBtn.style.display = "none";
+  if (music.paused) {
+    music.play();
+    playBtn.textContent = "Pause Music ⏸️";
+  } else {
+    music.pause();
+    playBtn.textContent = "Play Music 🎶";
+  }
+});
+
 });
 
